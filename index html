@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>နော်ဖေါကမွီး - ကိုယ်ရေးအကျဥ်း</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pyidaungsu', 'Noto Sans Myanmar', sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #1a73e8;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #1a73e8;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        body.dark-mode .container {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .section {
+            background: #3d3d3d;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>နော်ဖေါကမွီး</h1>
+            <p>ကိုယ်ရေးအကျဥ်း</p>
+        </header>
+
+        <div class="section">
+            <h2>အချက်အလက်များ</h2>
+            <p>အသက် - ၁၉ နှစ်</p>
+            <p>ပညာရေး - တောင်ကလေးဘုန်းတော်ကြီးသင်ပညာရေးကျောင်း</p>
+            <p>ကျေးရွာ - ကရင်ပြည်နယ်၊ လှိုင်ဘွဲမြို့၊ မြိုင်ကြီးငူရွာ</p>
+            <p>အတန်း - Grade 11</p>
+        </div>
+
+        <div class="section">
+            <h2>ဝါသနာနှင့်လုပ်ဆောင်နေမှုများ</h2>
+            <p>ချည်ထိုးလုပ်ငန်း</p>
+            <p>ဆပ်ပြာပြုလုပ်ခြင်းပရောဂျက်</p>
+            <button onclick="showProject()">ပရောဂျက်အကြောင်းပိုမို</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for interactive features
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.theme-toggle i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+            
+            // Save theme preference
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        function showProject() {
+            alert("ဆပ်ပြာပြုလုပ်ခြင်းပရောဂျက်နှင့်ပတ်သက်၍ အသေးစိတ်သိရှိလိုပါက ဆက်သွယ်နိုင်ပါသည်။");
+        }
+
+        // Check saved theme
+        window.onload = function() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if(isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+    </script>
+</body>
+</html>
